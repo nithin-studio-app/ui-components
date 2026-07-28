@@ -42,6 +42,15 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # actions/checkout already gets main's latest by default, but make it
+      # explicit — this must run before any local changes so there's
+      # nothing to lose from resetting.
+      - name: Sync with latest main
+        run: |
+          git fetch origin main
+          git checkout main
+          git reset --hard origin/main
+
       # Not tied to any single PR — bumps whatever's currently on main,
       # however many merges have accumulated since the last release.
       - name: Bump version
@@ -64,10 +73,15 @@ jobs:
         run: |
           set -e
           VERSION=$(node -p "require('./package.json').version")
-          BRANCH="release/v$VERSION"
+          BRANCH="version-bump"
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Clear out any leftover branch from a previous failed/interrupted
+          # run so this push is a clean create, not a force-overwrite.
+          git push origin --delete "$BRANCH" 2>/dev/null || true
+
           git checkout -b "$BRANCH"
           git add package.json
           git commit -m "chore: sync version to v$VERSION"
@@ -79,4 +93,4 @@ jobs:
             --title "chore: sync version to v$VERSION" \
             --body "v$VERSION was just published to GitHub Packages. This PR syncs \`package.json\` on \`main\` to match.")
           PR_NUMBER="${PR_URL##*/}"
-          gh pr merge --auto --squash "$PR_NUMBER"
+          gh pr merge --auto --squash --delete-branch "$PR_NUMBER"
