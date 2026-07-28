@@ -112,34 +112,26 @@ regressions before publishing.
 
 `main` is protected — all changes land via PR, and PRs can't merge until
 CI (`.github/workflows/ci.yml`: lint, build, test, build-storybook) is
-green. **Every PR that changes published behavior needs a changeset:**
+green.
 
-```
-pnpm changeset
-```
-
-Pick patch/minor/major and describe the change — this becomes the
-changelog entry. Skip it only for changes that don't affect consumers
-(docs, internal refactors, CI config).
-
-Releasing is a **manual trigger, not automatic on merge**
-(`.github/workflows/release.yml`, using the
-[Changesets](https://github.com/changesets/changesets) CLI directly, not
-its PR-first GitHub Action) — publish happens immediately once
+Releasing is a **manual trigger, decoupled from any single PR**
+(`.github/workflows/release.yml`) — publish happens immediately once
 triggered, *then* `main` gets synced afterward:
-1. Feature PRs with changesets merge to `main` as normal — this doesn't
-   release anything by itself, just accumulates pending changesets.
+1. PRs merge to `main` as normal. Merging doesn't release anything by
+   itself — it's just accumulating changes for whenever the next release
+   happens, whether that's after one PR or ten.
 2. When you're ready to release: GitHub → **Actions → Release → Run
-   workflow**. The workflow bumps the version, builds, and publishes
-   straight to GitHub Packages (`@nithin22796/ui-components`) — no PR
-   gate before this step.
+   workflow**, and pick the bump type (patch/minor/major) from the
+   dropdown. The workflow bumps `package.json` to that version, builds,
+   and publishes straight to GitHub Packages
+   (`@nithin22796/ui-components`) — no PR gate before this step.
 3. Only after that publish succeeds, it opens a PR to bring `main`'s
-   `package.json`/`CHANGELOG.md` in line with what was just published,
-   and enables auto-merge on it.
+   `package.json` in line with what was just published, and enables
+   auto-merge on it.
 4. Once that PR's own CI run passes, it auto-merges — at which point
    `main` reflects the version that's already live on the registry.
 
-(Running it with no pending changesets on `main` — e.g. right after the
-previous version-sync PR merged — does nothing; steps 2–4 are skipped.)
-
 No one manually runs `npm publish` or hand-edits the version number.
+There's no changelog automation — write release notes separately if you
+want them (e.g. the GitHub Release UI) rather than relying on commit
+messages.
