@@ -1,36 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, within } from "storybook/test";
-import {
-  CloseIcon,
-  PersonIcon,
-  CheckIcon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  MoreVertIcon,
-  SearchIcon,
-  StarIcon,
-} from ".";
+import * as icons from ".";
 import { ShowcasePage, ShowcaseCard } from "../../_showcase";
-
-const icons = {
-  CloseIcon,
-  PersonIcon,
-  CheckIcon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  MoreVertIcon,
-  SearchIcon,
-  StarIcon,
-};
 
 function IconsShowcase() {
   return (
-    <ShowcasePage title="Icons" description="Plain SVG components, stroke/fill=currentColor — usable anywhere, styled by the parent.">
-      <ShowcaseCard label="all icons">
+    <ShowcasePage
+      title="Icons"
+      description="Plain SVG components, stroke/fill=currentColor — usable anywhere, styled by the parent."
+    >
+      <ShowcaseCard label={`all icons (${Object.keys(icons).length})`}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem", color: "#f0f0f0" }}>
           {Object.entries(icons).map(([name, Icon]) => (
             <div key={name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
