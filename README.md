@@ -122,12 +122,15 @@ Pick patch/minor/major and describe the change — this becomes the
 changelog entry. Skip it only for changes that don't affect consumers
 (docs, internal refactors, CI config).
 
-Releasing itself is automatic (`.github/workflows/release.yml`, using
-the [Changesets](https://github.com/changesets/changesets) CLI directly,
-not its PR-first GitHub Action) — publish happens immediately on merge,
-*then* `main` gets synced afterward:
-1. A feature PR with a changeset merges to `main`.
-2. The release workflow bumps the version, builds, and publishes
+Releasing is a **manual trigger, not automatic on merge**
+(`.github/workflows/release.yml`, using the
+[Changesets](https://github.com/changesets/changesets) CLI directly, not
+its PR-first GitHub Action) — publish happens immediately once
+triggered, *then* `main` gets synced afterward:
+1. Feature PRs with changesets merge to `main` as normal — this doesn't
+   release anything by itself, just accumulates pending changesets.
+2. When you're ready to release: GitHub → **Actions → Release → Run
+   workflow**. The workflow bumps the version, builds, and publishes
    straight to GitHub Packages (`@nithin22796/ui-components`) — no PR
    gate before this step.
 3. Only after that publish succeeds, it opens a PR to bring `main`'s
@@ -136,7 +139,7 @@ not its PR-first GitHub Action) — publish happens immediately on merge,
 4. Once that PR's own CI run passes, it auto-merges — at which point
    `main` reflects the version that's already live on the registry.
 
-(Runs where the merged commit carries no changeset — i.e. nothing to
-version — skip steps 2–4 entirely.)
+(Running it with no pending changesets on `main` — e.g. right after the
+previous version-sync PR merged — does nothing; steps 2–4 are skipped.)
 
 No one manually runs `npm publish` or hand-edits the version number.

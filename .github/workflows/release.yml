@@ -1,11 +1,10 @@
 name: Release
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 concurrency:
-  group: release-${{ github.ref }}
+  group: release-main
   cancel-in-progress: false
 
 permissions:
@@ -34,8 +33,8 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      # Nothing to do if the merge that triggered this had no changeset
-      # (e.g. this run *is* the version-sync PR's own merge).
+      # Nothing to do if main has no pending changesets (e.g. this got
+      # triggered right after the previous version-sync PR merged).
       - name: Check for pending changesets
         id: check
         run: |
