@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent, within } from "storybook/test";
 import { List, ListItem, ListItemText } from "./List";
-import { PersonIcon, StarIcon, CloseIcon } from "../../icons";
+import { PersonIcon, StarIcon, CloseIcon } from "../icons";
 import { ShowcasePage, ShowcaseCard } from "../../_showcase";
 
 function ListShowcase() {

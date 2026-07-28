@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
-import { PersonIcon } from "../../icons";
+import { PersonIcon } from "../icons";
 import "./Avatar.css";
 
 export type AvatarVariant = "circular" | "rounded" | "square";

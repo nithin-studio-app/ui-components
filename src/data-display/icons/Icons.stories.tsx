@@ -12,7 +12,7 @@ import {
   SearchIcon,
   StarIcon,
 } from ".";
-import { ShowcasePage, ShowcaseCard } from "../_showcase";
+import { ShowcasePage, ShowcaseCard } from "../../_showcase";
 
 const icons = {
   CloseIcon,
@@ -47,7 +47,7 @@ function IconsShowcase() {
 }
 
 const meta: Meta<typeof IconsShowcase> = {
-  title: "Icons",
+  title: "DataDisplay/Icons",
   component: IconsShowcase,
 };
 

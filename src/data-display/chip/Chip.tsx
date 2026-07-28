@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { CloseIcon } from "../../icons";
+import { CloseIcon } from "../icons";
 import "./Chip.css";
 
 export interface ChipProps {
