@@ -50,14 +50,27 @@ function AccentSwatch({ hex }: { hex: string }) {
   );
 }
 
+// Multiple names can point at the same color (accent.failed/.error/.danger
+// are all red.A700) — group them so each distinct color gets one card,
+// labeled with every name that resolves to it.
+function groupByColor(colors: Record<string, string>): { label: string; hex: string }[] {
+  const namesByHex = new Map<string, string[]>();
+  for (const [name, hex] of Object.entries(colors)) {
+    const names = namesByHex.get(hex);
+    if (names) names.push(name);
+    else namesByHex.set(hex, [name]);
+  }
+  return Array.from(namesByHex.entries()).map(([hex, names]) => ({ label: names.join(", "), hex }));
+}
+
 function AccentsShowcase() {
   return (
     <ShowcasePage
       title="Accents"
       description="Semantic status colors for job/task/upload states — not general UI (see Palette for that)."
     >
-      {Object.entries(accent).map(([name, hex]) => (
-        <ShowcaseCard key={name} label={name}>
+      {groupByColor(accent).map(({ label, hex }) => (
+        <ShowcaseCard key={hex} label={label}>
           <AccentSwatch hex={hex} />
         </ShowcaseCard>
       ))}
@@ -98,8 +111,13 @@ export const Accents: Story = {
 
     await expect(canvas.getByText("Accents")).toBeInTheDocument();
 
-    for (const name of Object.keys(accent)) {
-      await expect(canvas.getByText(name)).toBeInTheDocument();
+    const groups = groupByColor(accent);
+    for (const { label } of groups) {
+      await expect(canvas.getByText(label)).toBeInTheDocument();
     }
+
+    // Every name is still individually accessible via `accent`, even
+    // though shared-color names are grouped into one card visually.
+    await expect(Object.keys(accent)).toEqual(["failed", "error", "danger", "success", "inProgress", "queued", "disabled"]);
   },
 };
