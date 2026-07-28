@@ -12,10 +12,10 @@ flat list of component folders:
 
 - `foundations/` — design tokens and base rules that aren't components
   themselves (`typography/`, `colors/` so far — layout to follow).
-- `data-display/` — components for presenting data (`avatar/` so far;
-  badge, chip, divider, list, table, tooltip, text to follow).
-- `icons/` (not yet created) — SVG icon components, kept separate since
-  it's a large, frequently-growing flat asset list.
+- `data-display/` — components for presenting data: `avatar/`, `badge/`,
+  `chip/`, `divider/`, `list/`, `table/`, `tooltip/`, `text/`.
+- `icons/` — SVG icon components (`stroke`/`fill="currentColor"`), kept
+  separate since it's a large, frequently-growing flat asset list.
 - `utils/` (not yet created) — non-visual helpers.
 - `_showcase/` — Storybook-presentation-only helpers (`ShowcasePage`,
   `ShowcaseCard`), used by `*.stories.tsx` files but never exported from

@@ -5,3 +5,4 @@ export * from "./divider";
 export * from "./list";
 export * from "./table";
 export * from "./tooltip";
+export * from "./text";
