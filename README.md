@@ -16,6 +16,12 @@ flat list of component folders:
 - `icons/` (not yet created) — SVG icon components, kept separate since
   it's a large, frequently-growing flat asset list.
 - `utils/` (not yet created) — non-visual helpers.
+- `_showcase/` — Storybook-presentation-only helpers (`ShowcasePage`,
+  `ShowcaseCard`), used by `*.stories.tsx` files but never exported from
+  the public API. Lives at `src/` root, not nested under `foundations/`,
+  since it isn't one — excluded from declaration output in
+  `vite.config.ts` (`dts({ exclude: [...] })`) so it doesn't ship in the
+  published package.
 
 Everything previously built (pre-restructure) lives, untracked by this
 repo's git, at `../ui-components-backup/` (sibling directory, one level
@@ -27,7 +33,7 @@ everything at once — that defeats the point of starting clean.
 ### Foundation showcase pages
 
 Every `foundations/*` Storybook page (`typography/`, `colors/`, and
-layout to follow) uses the same shell, from `foundations/_showcase/`:
+layout to follow) uses the same shell, from `_showcase/`:
 `ShowcasePage` (full-width title + optional description) wrapping a
 stack of `ShowcaseCard`s (small caption label + arbitrary preview
 content). See `foundations/typography/Typography.stories.tsx` or
