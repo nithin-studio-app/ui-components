@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
+import { PersonIcon } from "../../icons";
 import "./Avatar.css";
 
 export type AvatarVariant = "circular" | "rounded" | "square";
@@ -16,15 +17,6 @@ export interface AvatarProps {
   variant?: AvatarVariant;
   /** Diameter in rem. */
   size?: number;
-}
-
-function PersonIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 20c0-4.42 3.58-7 8-7s8 2.58 8 7" strokeLinecap="round" />
-    </svg>
-  );
 }
 
 export function Avatar({ src, alt, children, variant = "circular", size = 2.5 }: AvatarProps) {
