@@ -1,0 +1,91 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: write
+
+jobs:
+  release:
+    name: Bump, publish, then sync main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CHANGESETS_PAT }}
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          registry-url: https://npm.pkg.github.com
+          scope: "@nithin22796"
+
+      - run: pnpm install --frozen-lockfile
+
+      # Nothing to do if the merge that triggered this had no changeset
+      # (e.g. this run *is* the version-sync PR's own merge).
+      - name: Check for pending changesets
+        id: check
+        run: |
+          if compgen -G ".changeset/*.md" > /dev/null && [ -n "$(find .changeset -maxdepth 1 -name '*.md' ! -name 'README.md')" ]; then
+            echo "pending=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "pending=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Bumps package.json + writes CHANGELOG.md + deletes the consumed
+      # changeset files, all as local working-tree changes (not committed
+      # yet — main is protected, so this can't push straight to it).
+      - name: Bump version
+        if: steps.check.outputs.pending == 'true'
+        run: pnpm changeset version
+
+      - name: Build
+        if: steps.check.outputs.pending == 'true'
+        run: pnpm build
+
+      # Publish first, using the version just bumped to above — before
+      # main's package.json reflects it.
+      - name: Publish to GitHub Packages
+        if: steps.check.outputs.pending == 'true'
+        run: pnpm changeset publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.CHANGESETS_PAT }}
+
+      # Only after a successful publish: open a PR to bring main's
+      # package.json/CHANGELOG in line with what was just published.
+      - name: Open version-sync PR
+        if: steps.check.outputs.pending == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.CHANGESETS_PAT }}
+        run: |
+          set -e
+          VERSION=$(node -p "require('./package.json').version")
+          BRANCH="release/v$VERSION"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add package.json CHANGELOG.md .changeset
+          git commit -m "chore: sync version to v$VERSION"
+          git push origin "$BRANCH"
+
+          PR_URL=$(gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "chore: sync version to v$VERSION" \
+            --body "v$VERSION was just published to GitHub Packages. This PR syncs \`package.json\`/\`CHANGELOG.md\` on \`main\` to match.")
+          PR_NUMBER="${PR_URL##*/}"
+          gh pr merge --auto --squash "$PR_NUMBER"
