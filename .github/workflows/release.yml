@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: write
+
+jobs:
+  release:
+    name: Version / Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CHANGESETS_PAT }}
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          registry-url: https://npm.pkg.github.com
+          scope: "@nithin22796"
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm build
+
+      # If there are pending changeset files, this opens/updates a
+      # "Version Packages" PR (bumping package.json + CHANGELOG, deleting
+      # the changesets). If there are none — meaning that PR was just
+      # merged — it publishes instead.
+      - name: Create Version PR or publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm changeset publish
+          commit: "chore: version packages"
+          title: "chore: version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.CHANGESETS_PAT }}
+
+      - name: Enable auto-merge on the Version Packages PR
+        if: steps.changesets.outputs.pullRequestNumber
+        run: gh pr merge --auto --squash "$PR_NUMBER"
+        env:
+          GH_TOKEN: ${{ secrets.CHANGESETS_PAT }}
+          PR_NUMBER: ${{ steps.changesets.outputs.pullRequestNumber }}

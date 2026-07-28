@@ -103,9 +103,34 @@ Add a `play` function to new stories that have meaningful interaction
 (clicks, keyboard nav, state changes) rather than leaving them as pure
 render smoke tests.
 
-## Versioning
+## Versioning & releasing
 
 This package is a real dependency shared across independently-deployed
 sub-apps. A breaking change here means every consumer needs to bump and
 redeploy, so bump `major` deliberately and check Storybook for visual
 regressions before publishing.
+
+`main` is protected — all changes land via PR, and PRs can't merge until
+CI (`.github/workflows/ci.yml`: lint, build, test, build-storybook) is
+green. **Every PR that changes published behavior needs a changeset:**
+
+```
+pnpm changeset
+```
+
+Pick patch/minor/major and describe the change — this becomes the
+changelog entry. Skip it only for changes that don't affect consumers
+(docs, internal refactors, CI config).
+
+Releasing itself is automatic (`.github/workflows/release.yml`, via
+[Changesets](https://github.com/changesets/changesets)):
+1. A feature PR with a changeset merges to `main`.
+2. The release workflow opens (or updates) a **"Version Packages" PR**
+   that bumps `package.json` and writes the changelog, and enables
+   auto-merge on it.
+3. Once that PR's own CI run passes, it auto-merges.
+4. That merge re-triggers the release workflow, which — finding no
+   pending changesets — publishes the new version to GitHub Packages
+   (`@nithin22796/ui-components`) instead.
+
+No one manually runs `npm publish` or hand-edits the version number.
