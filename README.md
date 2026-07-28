@@ -40,8 +40,9 @@ one system instead of each inventing its own layout.
 families × shades, no opinions attached.
 
 `colors/accents.ts`/`accents.css` are the semantic layer on top of it —
-status colors for job/task/upload states (`failed`/`error`/`danger`,
-`success`, `inProgress`, `queued`, `disabled`), each a specific palette
+`primary` for general UI, plus status colors for job/task/upload states
+(`failed`/`error`/`danger`, `success`, `inProgress`, `queued`,
+`disabled`), each a specific palette
 shade picked deliberately, not derived. `failed`/`error`/`danger` are the
 same color under three names, so any of them works depending on which
 term fits the calling domain — the `Accents` Storybook page groups them

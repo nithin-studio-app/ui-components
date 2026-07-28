@@ -1,8 +1,10 @@
-/* Semantic status colors — for job/task/upload states rather than
-   general UI (see palette.css for anything else). --accent-failed,
-   --accent-error, and --accent-danger are the same color under three
-   names, so whichever term fits the calling domain works. */
+/* Semantic colors — --accent-primary for general UI, the rest for
+   job/task/upload status (see palette.css for anything else).
+   --accent-failed, --accent-error, and --accent-danger are the same
+   color under three names, so whichever term fits the calling domain
+   works. */
 :root {
+  --accent-primary: #2962ff;
   --accent-failed: #d50000;
   --accent-error: #d50000;
   --accent-danger: #d50000;

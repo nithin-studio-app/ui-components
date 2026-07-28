@@ -118,6 +118,15 @@ export const Accents: Story = {
 
     // Every name is still individually accessible via `accent`, even
     // though shared-color names are grouped into one card visually.
-    await expect(Object.keys(accent)).toEqual(["failed", "error", "danger", "success", "inProgress", "queued", "disabled"]);
+    await expect(Object.keys(accent)).toEqual([
+      "primary",
+      "failed",
+      "error",
+      "danger",
+      "success",
+      "inProgress",
+      "queued",
+      "disabled",
+    ]);
   },
 };
