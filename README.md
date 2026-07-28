@@ -12,7 +12,8 @@ flat list of component folders:
 
 - `foundations/` — design tokens and base rules that aren't components
   themselves (`typography/`, `colors/` so far — layout to follow).
-- `components/` (not yet created) — actual interactive/visual components.
+- `data-display/` — components for presenting data (`avatar/` so far;
+  badge, chip, divider, list, table, tooltip, text to follow).
 - `icons/` (not yet created) — SVG icon components, kept separate since
   it's a large, frequently-growing flat asset list.
 - `utils/` (not yet created) — non-visual helpers.
@@ -30,17 +31,17 @@ from there into the right category above, refactoring as it lands rather
 than carrying old conventions over unexamined. Don't bulk-restore
 everything at once — that defeats the point of starting clean.
 
-### Foundation showcase pages
+### Showcase pages
 
-Every `foundations/*` Storybook page (`typography/`, `colors/`, and
-layout to follow) uses the same shell, from `_showcase/`:
-`ShowcasePage` (full-width title + optional description) wrapping a
-stack of `ShowcaseCard`s (small caption label + arbitrary preview
-content). See `foundations/typography/Typography.stories.tsx` or
-`foundations/colors/Colors.stories.tsx` for the pattern — one card per
-item, showing that item's own preview rather than a single combined
-example. Keep new foundation pages on this same shell so they read as
-one system instead of each inventing its own layout.
+Every category's Storybook page (`foundations/*`, `data-display/*`, ...)
+uses the same shell, from `_showcase/`: `ShowcasePage` (full-width title
++ optional description) wrapping a stack of `ShowcaseCard`s (small
+caption label + arbitrary preview content). See
+`foundations/colors/Colors.stories.tsx` or
+`data-display/avatar/Avatar.stories.tsx` for the pattern — one card per
+variant/example, showing that case's own preview rather than a single
+combined example. Keep new pages on this same shell so they read as one
+system instead of each inventing its own layout.
 
 `colors/palette.ts`/`palette.css` are the full raw color scale — 19
 families × shades, no opinions attached.
