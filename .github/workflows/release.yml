@@ -64,14 +64,14 @@ jobs:
         run: |
           set -e
           VERSION=$(node -p "require('./package.json').version")
-          BRANCH="release/v$VERSION"
+          BRANCH="version-bump"
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b "$BRANCH"
+          git checkout -B "$BRANCH"
           git add package.json
           git commit -m "chore: sync version to v$VERSION"
-          git push origin "$BRANCH"
+          git push origin "$BRANCH" --force
 
           PR_URL=$(gh pr create \
             --base main \
@@ -79,4 +79,4 @@ jobs:
             --title "chore: sync version to v$VERSION" \
             --body "v$VERSION was just published to GitHub Packages. This PR syncs \`package.json\` on \`main\` to match.")
           PR_NUMBER="${PR_URL##*/}"
-          gh pr merge --auto --squash "$PR_NUMBER"
+          gh pr merge --auto --squash --delete-branch "$PR_NUMBER"
