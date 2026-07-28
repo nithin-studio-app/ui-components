@@ -1,0 +1,39 @@
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.table-head .table-cell {
+  font-weight: 600;
+  color: #9aa0a6;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid #2a2c30;
+  padding: 0.6rem 1rem;
+}
+
+.table-cell {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #22242a;
+  color: #f0f0f0;
+  text-align: left;
+}
+
+.table-cell-center {
+  text-align: center;
+}
+
+.table-cell-right {
+  text-align: right;
+}
+
+.table-row-hover:hover .table-cell {
+  background: rgba(255, 255, 255, 0.03);
+}
