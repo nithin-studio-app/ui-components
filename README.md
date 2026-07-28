@@ -40,8 +40,8 @@ one system instead of each inventing its own layout.
 families × shades, no opinions attached.
 
 `colors/accents.ts`/`accents.css` are the semantic layer on top of it —
-status colors for job/task/upload states (`failed`/`error`/`danger`,
-`success`, `inProgress`, `queued`, `disabled`), each a specific palette
+status colors for job/task/upload states (`danger` — covers failed/error
+too, `success`, `inProgress`, `queued`, `disabled`), each a specific palette
 shade picked deliberately, not derived. This is about status semantics,
 not general UI (there's no `--accent`/primary-action color yet — that's
 still an open decision for later).

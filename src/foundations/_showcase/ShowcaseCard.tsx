@@ -17,7 +17,9 @@ export function ShowcaseCard({ label, children }: ShowcaseCardProps) {
         background: "#17181b",
       }}
     >
-      <div style={{ fontSize: "0.75rem", color: "#9aa0a6", marginBottom: "1rem" }}>{label}</div>
+      <h2 style={{ fontSize: "0.85rem", fontWeight: 600, color: "#e8e8e8", margin: "0 0 1rem" }}>
+        {label}
+      </h2>
       {children}
     </div>
   );
