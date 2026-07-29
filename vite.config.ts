@@ -14,7 +14,7 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 export default defineConfig({
   plugins: [react(), libInjectCss(), dts({
     include: ["src"],
-    exclude: ["src/**/*.stories.tsx"],
+    exclude: ["src/**/*.stories.tsx", "src/_showcase/**"],
     rollupTypes: true
   })],
   build: {

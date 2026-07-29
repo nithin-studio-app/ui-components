@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, within } from "storybook/test";
 import { palette } from "./palette";
 import { accent } from "./accents";
-import { ShowcasePage, ShowcaseCard } from "../_showcase";
+import { ShowcasePage, ShowcaseCard } from "../../_showcase";
 
 const shadeKeys = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "A100", "A200", "A400", "A700"];
 

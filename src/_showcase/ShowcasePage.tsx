@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/700.css";
-import { fontFamily } from "../typography/fontFamily";
+import { fontFamily } from "../foundations/typography/fontFamily";
 
 export interface ShowcasePageProps {
   title: string;

@@ -1,0 +1,57 @@
+.divider-horizontal {
+  border: none;
+  border-top: 1px solid #2a2c30;
+  width: 100%;
+  margin: 0;
+}
+
+.divider-vertical {
+  border: none;
+  border-left: 1px solid #2a2c30;
+  height: 100%;
+  width: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+.divider-inset.divider-horizontal {
+  width: calc(100% - 2rem);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.divider-inset.divider-vertical {
+  height: calc(100% - 2rem);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.divider-with-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.divider-with-label .divider-line {
+  background: #2a2c30;
+}
+
+.divider-with-label.divider-horizontal .divider-line {
+  flex: 1;
+  height: 1px;
+}
+
+.divider-with-label.divider-vertical {
+  flex-direction: column;
+}
+
+.divider-with-label.divider-vertical .divider-line {
+  flex: 1;
+  width: 1px;
+}
+
+.divider-label {
+  font-size: 0.75rem;
+  color: #9aa0a6;
+  white-space: nowrap;
+}

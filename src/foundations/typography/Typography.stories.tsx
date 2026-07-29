@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, within } from "storybook/test";
 import { fontFamilyFonts } from "./fontFamily";
-import { ShowcasePage, ShowcaseCard } from "../_showcase";
+import { ShowcasePage, ShowcaseCard } from "../../_showcase";
 
 function displayName(font: string) {
   return font.replace(/^"|"$/g, "");
