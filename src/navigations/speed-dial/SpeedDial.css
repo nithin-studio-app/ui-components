@@ -1,0 +1,33 @@
+.speed-dial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.speed-dial-up,
+.speed-dial-down {
+  flex-direction: column;
+}
+
+.speed-dial-up {
+  flex-direction: column-reverse;
+}
+
+.speed-dial-left {
+  flex-direction: row-reverse;
+}
+
+.speed-dial-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.speed-dial-up .speed-dial-actions,
+.speed-dial-down .speed-dial-actions {
+  flex-direction: column;
+}
+
+.speed-dial-left .speed-dial-actions,
+.speed-dial-right .speed-dial-actions {
+  flex-direction: row;
+}

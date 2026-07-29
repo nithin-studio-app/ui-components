@@ -1,0 +1,75 @@
+.drawer-backdrop-left {
+  justify-content: flex-start;
+}
+
+.drawer-backdrop-right {
+  justify-content: flex-end;
+}
+
+.drawer-backdrop-top {
+  align-items: flex-start;
+}
+
+.drawer-backdrop-bottom {
+  align-items: flex-end;
+}
+
+.drawer-panel {
+  background: #1d1f23;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.drawer-temporary {
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.6);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.drawer-anchor-left.drawer-temporary,
+.drawer-anchor-right.drawer-temporary {
+  width: 16rem;
+  max-width: 85vw;
+}
+
+.drawer-anchor-top.drawer-temporary,
+.drawer-anchor-bottom.drawer-temporary {
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+}
+
+.drawer-persistent,
+.drawer-permanent {
+  height: 100%;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.drawer-anchor-left.drawer-persistent,
+.drawer-anchor-right.drawer-persistent,
+.drawer-anchor-left.drawer-permanent,
+.drawer-anchor-right.drawer-permanent {
+  width: 16rem;
+  border-right: 1px solid #2a2c30;
+}
+
+.drawer-anchor-right.drawer-persistent,
+.drawer-anchor-right.drawer-permanent {
+  border-right: none;
+  border-left: 1px solid #2a2c30;
+}
+
+.drawer-anchor-top.drawer-persistent,
+.drawer-anchor-top.drawer-permanent {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #2a2c30;
+}
+
+.drawer-anchor-bottom.drawer-persistent,
+.drawer-anchor-bottom.drawer-permanent {
+  width: 100%;
+  height: auto;
+  border-top: 1px solid #2a2c30;
+}

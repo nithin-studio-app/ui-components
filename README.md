@@ -33,7 +33,17 @@ flat list of component folders:
   refactored off the old CSS-custom-property theme onto literal hex),
   `spinner/` (also ported — a full-screen upload-progress celebration
   overlay, not a generic loading spinner).
-- `utils/` (not yet created) — non-visual helpers.
+- `navigations/` — components for moving around: `drawer/` (temporary
+  portaled+backdrop / persistent / permanent variants), `link/`,
+  `breadcrumbs/`, `menu/` (trigger + `role="menu"` popup), `pagination/`,
+  `speed-dial/` (a Fab that expands into a stack of action Fabs),
+  `stepper/` (ported from the backup, refactored the same way as
+  `feedbacks/progress-bar`), `tabs/` (`Tabs`/`Tab`/`TabPanel` — `TabPanel`
+  must be nested inside `Tabs` alongside its `Tab`s, not rendered as a
+  sibling, so it stays inside the same context provider).
+- `utils/` — non-visual helpers, currently just `useFocusTrap` (shared by
+  `feedbacks/dialog` and `navigations/drawer`: moves focus in on open,
+  traps Tab, restores it on close, handles Escape).
 - `_showcase/` — Storybook-presentation-only helpers (`ShowcasePage`,
   `ShowcaseCard`), used by `*.stories.tsx` files but never exported from
   the public API. Lives at `src/` root, not nested under `foundations/`,

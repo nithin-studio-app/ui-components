@@ -1,19 +1,25 @@
-import type { MouseEventHandler, ReactNode } from "react";
+import type { AriaAttributes, MouseEventHandler, ReactNode } from "react";
 import { accent } from "../../foundations/colors";
 import "./Fab.css";
 
 export type FabSize = "small" | "medium" | "large";
 export type FabVariant = "circular" | "extended";
 
-export interface FabProps {
+// Extends AriaAttributes (rather than just declaring aria-label) so
+// composed patterns that need e.g. aria-expanded or role on the rendered
+// button — SpeedDial's main toggle and its action buttons — type-check
+// without Fab needing to know about every possible caller in advance; it
+// already forwards unrecognized props to the DOM via ...rest at runtime,
+// this just lets the type system reflect that.
+export interface FabProps extends AriaAttributes {
   children: ReactNode;
   variant?: FabVariant;
   color?: string;
   size?: FabSize;
   disabled?: boolean;
   href?: string;
+  role?: string;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  "aria-label"?: string;
 }
 
 // A circular Fab is icon-only, so it needs an accessible name from the

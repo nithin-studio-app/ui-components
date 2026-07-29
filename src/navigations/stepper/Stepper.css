@@ -1,0 +1,134 @@
+.stepper {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.stepper-timeline {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.stepper-node {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.stepper-node:last-child {
+  flex: 0 0 auto;
+}
+
+.stepper-node-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.stepper-node-button:disabled {
+  cursor: default;
+}
+
+.stepper-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 1px solid #2a2c30;
+  background: #17181b;
+  color: #9aa0a6;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.8rem;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.stepper-node.is-current .stepper-dot {
+  border-color: #448aff;
+  color: #448aff;
+  background: rgba(68, 138, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(68, 138, 255, 0.12);
+}
+
+.stepper-node.is-done .stepper-dot {
+  border-color: #64dd17;
+  color: #64dd17;
+  background: rgba(100, 221, 23, 0.12);
+}
+
+.stepper-label {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9aa0a6;
+  white-space: nowrap;
+}
+
+.stepper-node.is-current .stepper-label {
+  color: #f0f0f0;
+}
+
+.stepper-node-button:disabled .stepper-label {
+  opacity: 0.5;
+}
+
+.stepper-connector {
+  flex: 1;
+  height: 1px;
+  background: #2a2c30;
+  margin: 0 0.75rem;
+  margin-bottom: 1.5rem;
+  transition: background 0.2s ease;
+}
+
+.stepper-connector.is-done {
+  background: #64dd17;
+}
+
+.stepper-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: stepper-fade-in 0.2s ease;
+  min-height: 8rem;
+}
+
+@keyframes stepper-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stepper-content {
+    animation: none;
+  }
+}
+
+.stepper-footer {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
