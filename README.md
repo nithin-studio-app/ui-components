@@ -1,5 +1,9 @@
 # @nithin-studio/ui-components
 
+**Storybook:** https://nithin22796.github.io/ui-components/ — rebuilt and
+redeployed automatically on every push to `main` (`.github/workflows/
+deploy-storybook.yml`).
+
 Shared, app-agnostic React components used across nithin-studio's sub-apps
 (file-manager, image-importer, insta-downloader, ...). Extracted so each
 sub-app can live in its own repo/deploy independently while still reusing
