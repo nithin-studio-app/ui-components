@@ -17,7 +17,11 @@ flat list of component folders:
 - `foundations/` — design tokens and base rules that aren't components
   themselves (`typography/`, `colors/` so far — layout to follow).
 - `data-display/` — components for presenting data: `avatar/`, `badge/`,
-  `chip/`, `divider/`, `icons/`, `list/`, `table/`, `tooltip/`, `text/`.
+  `card/` (`Card`/`CardHeader`/`CardMedia`/`CardContent`/`CardActions`),
+  `chip/`, `divider/`, `icons/`, `image-carousel/` (sliding gallery —
+  autoplay respects `prefers-reduced-motion` and always ships a keyboard-
+  reachable pause toggle rather than only pausing on hover), `list/`,
+  `table/`, `tooltip/`, `text/`.
   `icons/` (SVG components, `stroke`/`fill="currentColor"`) lives inside
   this category rather than at `src/` root, since it's specifically the
   icon set these data-display components use.
@@ -29,18 +33,25 @@ flat list of component folders:
   dependent on the reference library.
 - `feedbacks/` — components that communicate status back to the user:
   `alert/`, `backdrop/`, `dialog/` (portals to `document.body`, traps
-  focus, restores it on close), `progress-bar/` (ported from the backup,
-  refactored off the old CSS-custom-property theme onto literal hex),
-  `spinner/` (also ported — a full-screen upload-progress celebration
-  overlay, not a generic loading spinner).
+  focus, restores it on close), `media-preview/` (a full-screen lightbox —
+  zoom, drag-to-pan once zoomed, prev/next, download/delete — ported from
+  `client/src/shared/media-preview`), `progress-bar/` (ported from the
+  backup, refactored off the old CSS-custom-property theme onto literal
+  hex), `skeleton/`, `snackbar/` (non-modal, no backdrop, `role="status"` —
+  pass an `Alert` as `children` to override the default message/action
+  layout), `spinner/` (also ported — a full-screen upload-progress
+  celebration overlay, not a generic loading spinner).
 - `navigations/` — components for moving around: `drawer/` (temporary
   portaled+backdrop / persistent / permanent variants), `link/`,
   `breadcrumbs/`, `menu/` (trigger + `role="menu"` popup), `pagination/`,
-  `speed-dial/` (a Fab that expands into a stack of action Fabs),
-  `stepper/` (ported from the backup, refactored the same way as
-  `feedbacks/progress-bar`), `tabs/` (`Tabs`/`Tab`/`TabPanel` — `TabPanel`
-  must be nested inside `Tabs` alongside its `Tab`s, not rendered as a
-  sibling, so it stays inside the same context provider).
+  `popover/` (like `menu/`, but for arbitrary content instead of a fixed
+  item list — traps focus like a lightweight non-modal dialog rather than
+  doing menuitem keyboard nav), `speed-dial/` (a Fab that expands into a
+  stack of action Fabs), `stepper/` (ported from the backup, refactored
+  the same way as `feedbacks/progress-bar`), `tabs/`
+  (`Tabs`/`Tab`/`TabPanel` — `TabPanel` must be nested inside `Tabs`
+  alongside its `Tab`s, not rendered as a sibling, so it stays inside the
+  same context provider).
 - `utils/` — non-visual helpers, currently just `useFocusTrap` (shared by
   `feedbacks/dialog` and `navigations/drawer`: moves focus in on open,
   traps Tab, restores it on close, handles Escape).
