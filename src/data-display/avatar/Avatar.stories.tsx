@@ -11,7 +11,12 @@ function Row({ children }: { children: ReactNode }) {
 function AvatarShowcase() {
   return (
     <ShowcasePage title="Avatar" description="Image, initials, or icon — with an automatic fallback cascade.">
-      <ShowcaseCard label="variant">
+      <ShowcaseCard
+        label="variant"
+        code={`<Avatar variant="circular" alt="Circular" />
+<Avatar variant="rounded" alt="Rounded" />
+<Avatar variant="square" alt="Square" />`}
+      >
         <Row>
           <Avatar variant="circular" alt="Circular" />
           <Avatar variant="rounded" alt="Rounded" />
@@ -19,29 +24,43 @@ function AvatarShowcase() {
         </Row>
       </ShowcaseCard>
 
-      <ShowcaseCard label="image (src)">
+      <ShowcaseCard
+        label="image (src)"
+        code={`<Avatar src="https://picsum.photos/seed/avatar/200/200" alt="Sample user" />`}
+      >
         <Avatar src="https://picsum.photos/seed/avatar/200/200" alt="Sample user" />
       </ShowcaseCard>
 
-      <ShowcaseCard label="fallback: broken image → initials">
+      <ShowcaseCard
+        label="fallback: broken image → initials"
+        code={`<Avatar src="/broken-url.jpg" alt="Jane Doe" />`}
+      >
         {/* A malformed data URI fails to decode immediately (no network
             round-trip), so the onError fallback is deterministic in tests. */}
         <Avatar src="data:image/png;base64,not-a-valid-image" alt="Jane Doe" />
       </ShowcaseCard>
 
-      <ShowcaseCard label="fallback: no src → initials">
+      <ShowcaseCard label="fallback: no src → initials" code={`<Avatar alt="Priya Shah" />`}>
         <Avatar alt="Priya Shah" />
       </ShowcaseCard>
 
-      <ShowcaseCard label="fallback: no src, no alt → generic icon">
+      <ShowcaseCard label="fallback: no src, no alt → generic icon" code={`<Avatar />`}>
         <Avatar />
       </ShowcaseCard>
 
-      <ShowcaseCard label="custom content (overrides initials)">
+      <ShowcaseCard
+        label="custom content (overrides initials)"
+        code={`<Avatar alt="Notification bot">🤖</Avatar>`}
+      >
         <Avatar alt="Notification bot">🤖</Avatar>
       </ShowcaseCard>
 
-      <ShowcaseCard label="size">
+      <ShowcaseCard
+        label="size"
+        code={`<Avatar alt="Small" size={1.75} />
+<Avatar alt="Default" />
+<Avatar alt="Large" size={4} />`}
+      >
         <Row>
           <Avatar alt="Small" size={1.75} />
           <Avatar alt="Default" />

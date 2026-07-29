@@ -12,7 +12,27 @@ const rows = [
 function TableShowcase() {
   return (
     <ShowcasePage title="Table" description="Semantic table markup, wrapped for horizontal scroll on overflow.">
-      <ShowcaseCard label="basic">
+      <ShowcaseCard
+        label="basic"
+        code={`<Table>
+  <TableHead>
+    <TableRow>
+      <TableCell header>Name</TableCell>
+      <TableCell header>Status</TableCell>
+      <TableCell header align="right">Size</TableCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    {rows.map((row) => (
+      <TableRow key={row.name} hover>
+        <TableCell>{row.name}</TableCell>
+        <TableCell>{row.status}</TableCell>
+        <TableCell align="right">{row.size}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>`}
+      >
         <Table>
           <TableHead>
             <TableRow>
@@ -35,7 +55,25 @@ function TableShowcase() {
         </Table>
       </ShowcaseCard>
 
-      <ShowcaseCard label="alignment">
+      <ShowcaseCard
+        label="alignment"
+        code={`<Table>
+  <TableHead>
+    <TableRow>
+      <TableCell header>Left</TableCell>
+      <TableCell header align="center">Center</TableCell>
+      <TableCell header align="right">Right</TableCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow>
+      <TableCell>a</TableCell>
+      <TableCell align="center">b</TableCell>
+      <TableCell align="right">c</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>`}
+      >
         <Table>
           <TableHead>
             <TableRow>

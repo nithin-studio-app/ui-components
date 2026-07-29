@@ -7,7 +7,14 @@ import { ShowcasePage, ShowcaseCard } from "../../_showcase";
 function ListShowcase() {
   return (
     <ShowcasePage title="List" description="Rows of content, optionally clickable, with leading/trailing slots.">
-      <ShowcaseCard label="basic">
+      <ShowcaseCard
+        label="basic"
+        code={`<List>
+  <ListItem><ListItemText primary="Inbox" /></ListItem>
+  <ListItem><ListItemText primary="Drafts" /></ListItem>
+  <ListItem><ListItemText primary="Sent" /></ListItem>
+</List>`}
+      >
         <List>
           <ListItem>
             <ListItemText primary="Inbox" />
@@ -21,7 +28,13 @@ function ListShowcase() {
         </List>
       </ShowcaseCard>
 
-      <ShowcaseCard label="dense">
+      <ShowcaseCard
+        label="dense"
+        code={`<List dense>
+  <ListItem><ListItemText primary="Inbox" /></ListItem>
+  <ListItem><ListItemText primary="Drafts" /></ListItem>
+</List>`}
+      >
         <List dense>
           <ListItem>
             <ListItemText primary="Inbox" />
@@ -32,7 +45,14 @@ function ListShowcase() {
         </List>
       </ShowcaseCard>
 
-      <ShowcaseCard label="with icon + secondary text">
+      <ShowcaseCard
+        label="with icon + secondary text"
+        code={`<List>
+  <ListItem icon={<PersonIcon />}>
+    <ListItemText primary="Jane Doe" secondary="jane@example.com" />
+  </ListItem>
+</List>`}
+      >
         <List>
           <ListItem icon={<PersonIcon />}>
             <ListItemText primary="Jane Doe" secondary="jane@example.com" />
@@ -43,7 +63,17 @@ function ListShowcase() {
         </List>
       </ShowcaseCard>
 
-      <ShowcaseCard label="clickable + selected">
+      <ShowcaseCard
+        label="clickable + selected"
+        code={`<List>
+  <ListItem onClick={() => {}} selected>
+    <ListItemText primary="Selected item" />
+  </ListItem>
+  <ListItem onClick={() => {}}>
+    <ListItemText primary="Another item" />
+  </ListItem>
+</List>`}
+      >
         <List>
           <ListItem onClick={fn()} selected>
             <ListItemText primary="Selected item" />
@@ -54,7 +84,21 @@ function ListShowcase() {
         </List>
       </ShowcaseCard>
 
-      <ShowcaseCard label="trailing action">
+      <ShowcaseCard
+        label="trailing action"
+        code={`<List>
+  <ListItem
+    icon={<StarIcon />}
+    action={
+      <button aria-label="Remove" onClick={() => {}}>
+        <CloseIcon />
+      </button>
+    }
+  >
+    <ListItemText primary="Starred item" />
+  </ListItem>
+</List>`}
+      >
         <List>
           <ListItem
             icon={<StarIcon />}
@@ -71,7 +115,14 @@ function ListShowcase() {
         </List>
       </ShowcaseCard>
 
-      <ShowcaseCard label="disabled">
+      <ShowcaseCard
+        label="disabled"
+        code={`<List>
+  <ListItem onClick={() => {}} disabled>
+    <ListItemText primary="Disabled item" />
+  </ListItem>
+</List>`}
+      >
         <List>
           <ListItem onClick={fn()} disabled>
             <ListItemText primary="Disabled item" />

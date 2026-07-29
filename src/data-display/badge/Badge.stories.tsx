@@ -27,7 +27,12 @@ function IconBox({ children }: { children: ReactNode }) {
 function BadgeShowcase() {
   return (
     <ShowcasePage title="Badge" description="A count or dot anchored to a corner of another element.">
-      <ShowcaseCard label="count">
+      <ShowcaseCard
+        label="count"
+        code={`<Badge content={3}>
+  <NotificationsIcon />
+</Badge>`}
+      >
         <Badge content={3}>
           <IconBox>
             <NotificationsIcon />
@@ -35,7 +40,12 @@ function BadgeShowcase() {
         </Badge>
       </ShowcaseCard>
 
-      <ShowcaseCard label="dot">
+      <ShowcaseCard
+        label="dot"
+        code={`<Badge variant="dot">
+  <NotificationsIcon />
+</Badge>`}
+      >
         <Badge variant="dot">
           <IconBox>
             <NotificationsIcon />
@@ -43,7 +53,12 @@ function BadgeShowcase() {
         </Badge>
       </ShowcaseCard>
 
-      <ShowcaseCard label="max truncation (content=125, max=99)">
+      <ShowcaseCard
+        label="max truncation (content=125, max=99)"
+        code={`<Badge content={125}>
+  <MailIcon />
+</Badge>`}
+      >
         <Badge content={125}>
           <IconBox>
             <MailIcon />
@@ -51,7 +66,15 @@ function BadgeShowcase() {
         </Badge>
       </ShowcaseCard>
 
-      <ShowcaseCard label="showZero">
+      <ShowcaseCard
+        label="showZero"
+        code={`<Badge content={0}>
+  <MailIcon />
+</Badge>
+<Badge content={0} showZero>
+  <MailIcon />
+</Badge>`}
+      >
         <div style={{ display: "flex", gap: "1.5rem" }}>
           <Badge content={0}>
             <IconBox>
@@ -66,7 +89,12 @@ function BadgeShowcase() {
         </div>
       </ShowcaseCard>
 
-      <ShowcaseCard label="invisible">
+      <ShowcaseCard
+        label="invisible"
+        code={`<Badge content={5} invisible>
+  <NotificationsIcon />
+</Badge>`}
+      >
         <Badge content={5} invisible>
           <IconBox>
             <NotificationsIcon />
@@ -74,7 +102,15 @@ function BadgeShowcase() {
         </Badge>
       </ShowcaseCard>
 
-      <ShowcaseCard label="color">
+      <ShowcaseCard
+        label="color"
+        code={`<Badge content={2} color="#d50000">
+  <MailIcon />
+</Badge>
+<Badge content={2} color="#64dd17">
+  <NotificationsIcon />
+</Badge>`}
+      >
         <div style={{ display: "flex", gap: "1.5rem" }}>
           <Badge content={2} color="#d50000">
             <IconBox>

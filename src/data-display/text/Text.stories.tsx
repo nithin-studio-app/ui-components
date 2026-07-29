@@ -14,7 +14,15 @@ function TextShowcase() {
           only ever +1 from the previous, so the page's heading outline
           stays valid (unlike giving each its own card, which would jump
           straight from the card's own h2 label to e.g. h5). */}
-      <ShowcaseCard label="headings (h1-h6)">
+      <ShowcaseCard
+        label="headings (h1-h6)"
+        code={`<Text variant="h1">h1. The quick brown fox jumps over the lazy dog.</Text>
+<Text variant="h2">h2. The quick brown fox jumps over the lazy dog.</Text>
+<Text variant="h3">h3. The quick brown fox jumps over the lazy dog.</Text>
+<Text variant="h4">h4. The quick brown fox jumps over the lazy dog.</Text>
+<Text variant="h5">h5. The quick brown fox jumps over the lazy dog.</Text>
+<Text variant="h6">h6. The quick brown fox jumps over the lazy dog.</Text>`}
+      >
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
           {headingVariants.map((variant) => (
             <Text key={variant} variant={variant}>
@@ -25,24 +33,39 @@ function TextShowcase() {
       </ShowcaseCard>
 
       {textVariants.map((variant) => (
-        <ShowcaseCard key={variant} label={variant}>
+        <ShowcaseCard
+          key={variant}
+          label={variant}
+          code={`<Text variant="${variant}">The quick brown fox jumps over the lazy dog.</Text>`}
+        >
           <Text variant={variant}>The quick brown fox jumps over the lazy dog.</Text>
         </ShowcaseCard>
       ))}
 
-      <ShowcaseCard label='as="div" (h4 styling, no heading semantics)'>
+      <ShowcaseCard
+        label='as="div" (h4 styling, no heading semantics)'
+        code={`<Text variant="h4" as="div">Styled like a heading, rendered as a div</Text>`}
+      >
         <Text variant="h4" as="div">
           Styled like a heading, rendered as a div
         </Text>
       </ShowcaseCard>
 
-      <ShowcaseCard label="color override">
+      <ShowcaseCard
+        label="color override"
+        code={`<Text variant="body1" color="#ffab00">Custom color via the color prop</Text>`}
+      >
         <Text variant="body1" color="#ffab00">
           Custom color via the color prop
         </Text>
       </ShowcaseCard>
 
-      <ShowcaseCard label="noWrap">
+      <ShowcaseCard
+        label="noWrap"
+        code={`<Text variant="body1" noWrap>
+  This is a long line of text that should truncate with an ellipsis instead of wrapping.
+</Text>`}
+      >
         <div style={{ width: "12rem" }}>
           <Text variant="body1" noWrap>
             This is a long line of text that should truncate with an ellipsis instead of wrapping.

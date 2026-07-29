@@ -14,34 +14,48 @@ function DotIcon() {
 function ChipShowcase() {
   return (
     <ShowcasePage title="Chip" description="A compact label, optionally clickable and/or deletable.">
-      <ShowcaseCard label="filled / outlined">
+      <ShowcaseCard
+        label="filled / outlined"
+        code={`<Chip label="Filled" />
+<Chip label="Outlined" variant="outlined" />`}
+      >
         <div style={{ display: "flex", gap: "0.75rem" }}>
           <Chip label="Filled" />
           <Chip label="Outlined" variant="outlined" />
         </div>
       </ShowcaseCard>
 
-      <ShowcaseCard label="with icon">
+      <ShowcaseCard label="with icon" code={`<Chip label="Active" icon={<DotIcon />} />`}>
         <Chip label="Active" icon={<DotIcon />} />
       </ShowcaseCard>
 
-      <ShowcaseCard label="clickable">
+      <ShowcaseCard label="clickable" code={`<Chip label="Click me" onClick={() => {}} />`}>
         <Chip label="Click me" onClick={fn()} />
       </ShowcaseCard>
 
-      <ShowcaseCard label="deletable">
+      <ShowcaseCard label="deletable" code={`<Chip label="Removable" onDelete={() => {}} />`}>
         <Chip label="Removable" onDelete={fn()} />
       </ShowcaseCard>
 
-      <ShowcaseCard label="clickable + deletable">
+      <ShowcaseCard
+        label="clickable + deletable"
+        code={`<Chip label="Both" onClick={() => {}} onDelete={() => {}} />`}
+      >
         <Chip label="Both" onClick={fn()} onDelete={fn()} />
       </ShowcaseCard>
 
-      <ShowcaseCard label="disabled">
+      <ShowcaseCard
+        label="disabled"
+        code={`<Chip label="Disabled" onClick={() => {}} onDelete={() => {}} disabled />`}
+      >
         <Chip label="Disabled" onClick={fn()} onDelete={fn()} disabled />
       </ShowcaseCard>
 
-      <ShowcaseCard label="color">
+      <ShowcaseCard
+        label="color"
+        code={`<Chip label="Danger" color="#d50000" />
+<Chip label="Success" color="#64dd17" variant="outlined" />`}
+      >
         <div style={{ display: "flex", gap: "0.75rem" }}>
           <Chip label="Danger" color="#d50000" />
           <Chip label="Success" color="#64dd17" variant="outlined" />

@@ -22,7 +22,12 @@ function Box({ label }: { label: string }) {
 function DividerShowcase() {
   return (
     <ShowcasePage title="Divider" description="A thin rule separating content, horizontal or vertical, with an optional label.">
-      <ShowcaseCard label="horizontal">
+      <ShowcaseCard
+        label="horizontal"
+        code={`<Box label="Above" />
+<Divider />
+<Box label="Below" />`}
+      >
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           <Box label="Above" />
           <Divider />
@@ -30,7 +35,12 @@ function DividerShowcase() {
         </div>
       </ShowcaseCard>
 
-      <ShowcaseCard label="vertical">
+      <ShowcaseCard
+        label="vertical"
+        code={`<Box label="Left" />
+<Divider orientation="vertical" />
+<Box label="Right" />`}
+      >
         <div style={{ display: "flex", alignItems: "stretch", gap: "0.75rem", height: "3rem" }}>
           <Box label="Left" />
           <Divider orientation="vertical" />
@@ -38,7 +48,12 @@ function DividerShowcase() {
         </div>
       </ShowcaseCard>
 
-      <ShowcaseCard label="inset">
+      <ShowcaseCard
+        label="inset"
+        code={`<Box label="Above" />
+<Divider inset />
+<Box label="Below" />`}
+      >
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           <Box label="Above" />
           <Divider inset />
@@ -46,13 +61,13 @@ function DividerShowcase() {
         </div>
       </ShowcaseCard>
 
-      <ShowcaseCard label="with label">
+      <ShowcaseCard label="with label" code={`<Divider>OR</Divider>`}>
         <div style={{ width: "16rem" }}>
           <Divider>OR</Divider>
         </div>
       </ShowcaseCard>
 
-      <ShowcaseCard label="vertical with label">
+      <ShowcaseCard label="vertical with label" code={`<Divider orientation="vertical">OR</Divider>`}>
         <div style={{ display: "flex", alignItems: "stretch", height: "5rem" }}>
           <Divider orientation="vertical">OR</Divider>
         </div>

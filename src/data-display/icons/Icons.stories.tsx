@@ -9,7 +9,12 @@ function IconsShowcase() {
       title="Icons"
       description="Plain SVG components, stroke/fill=currentColor — usable anywhere, styled by the parent."
     >
-      <ShowcaseCard label={`all icons (${Object.keys(icons).length})`}>
+      <ShowcaseCard
+        label={`all icons (${Object.keys(icons).length})`}
+        code={`import { SearchIcon } from "@nithin22796/ui-components";
+
+<SearchIcon />`}
+      >
         <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem", color: "#f0f0f0" }}>
           {Object.entries(icons).map(([name, Icon]) => (
             <div key={name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>

@@ -16,7 +16,13 @@ const buttonStyle: CSSProperties = {
 function TooltipShowcase() {
   return (
     <ShowcasePage title="Tooltip" description="A short label on hover or focus, dismissible with Escape.">
-      <ShowcaseCard label="placement">
+      <ShowcaseCard
+        label="placement"
+        code={`<Tooltip title="Top tooltip" placement="top"><button>Top</button></Tooltip>
+<Tooltip title="Bottom tooltip" placement="bottom"><button>Bottom</button></Tooltip>
+<Tooltip title="Left tooltip" placement="left"><button>Left</button></Tooltip>
+<Tooltip title="Right tooltip" placement="right"><button>Right</button></Tooltip>`}
+      >
         <div style={{ display: "flex", gap: "3rem", padding: "2rem" }}>
           <Tooltip title="Top tooltip" placement="top">
             <button type="button" style={buttonStyle}>
@@ -41,7 +47,12 @@ function TooltipShowcase() {
         </div>
       </ShowcaseCard>
 
-      <ShowcaseCard label="keyboard: focus shows it, Escape dismisses it">
+      <ShowcaseCard
+        label="keyboard: focus shows it, Escape dismisses it"
+        code={`<Tooltip title="Keyboard-accessible tooltip">
+  <button>Focus me</button>
+</Tooltip>`}
+      >
         <Tooltip title="Keyboard-accessible tooltip">
           <button type="button" style={buttonStyle}>
             Focus me
