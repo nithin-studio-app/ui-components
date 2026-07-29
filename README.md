@@ -17,9 +17,12 @@ flat list of component folders:
   `icons/` (SVG components, `stroke`/`fill="currentColor"`) lives inside
   this category rather than at `src/` root, since it's specifically the
   icon set these data-display components use.
-- `components/` — interactive UI components: `button/` so far. Matches
-  reference pages' *behavior* (variants, props, a11y semantics) for API
-  shape only — never named after or dependent on the reference library.
+- `components/` — interactive UI components: `button/`, `checkbox/`,
+  `fab/`, `form-control-label/` (pairs a Checkbox/Radio/Switch with a
+  clickable label), `radio-group/` (`RadioGroup` + `Radio`), `select/`,
+  `switch/`, `text-field/`. Matches reference pages' *behavior* (variants,
+  props, a11y semantics) for API shape only — never named after or
+  dependent on the reference library.
 - `utils/` (not yet created) — non-visual helpers.
 - `_showcase/` — Storybook-presentation-only helpers (`ShowcasePage`,
   `ShowcaseCard`), used by `*.stories.tsx` files but never exported from

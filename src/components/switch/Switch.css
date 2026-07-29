@@ -1,0 +1,79 @@
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 2.75rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.switch-small {
+  width: 2.25rem;
+  height: 1.25rem;
+}
+
+.switch-input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.switch-disabled .switch-input {
+  cursor: not-allowed;
+}
+
+.switch-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: #4a4d52;
+  box-sizing: border-box;
+  pointer-events: none;
+  transition: background 0.15s;
+}
+
+.switch-input:checked + .switch-track {
+  background: currentcolor;
+}
+
+.switch-disabled .switch-track {
+  opacity: 0.4;
+}
+
+.switch-thumb {
+  position: absolute;
+  top: 0.15rem;
+  left: 0.15rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: #f0f0f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s;
+}
+
+.switch-small .switch-thumb {
+  width: 0.95rem;
+  height: 0.95rem;
+  top: 0.15rem;
+  left: 0.15rem;
+}
+
+.switch-input:checked ~ .switch-track .switch-thumb {
+  transform: translateX(1.25rem);
+}
+
+.switch-small .switch-input:checked ~ .switch-track .switch-thumb {
+  transform: translateX(1rem);
+}
+
+.switch-input:focus-visible ~ .switch-track {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
