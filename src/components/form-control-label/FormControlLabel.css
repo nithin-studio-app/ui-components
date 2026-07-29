@@ -1,0 +1,28 @@
+.form-control-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  color: #f0f0f0;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+.form-control-label-start {
+  flex-direction: row-reverse;
+}
+
+.form-control-label-top {
+  flex-direction: column-reverse;
+  gap: 0.15rem;
+}
+
+.form-control-label-bottom {
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.form-control-label-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
