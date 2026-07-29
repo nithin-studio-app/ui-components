@@ -11,7 +11,7 @@ function IconsShowcase() {
     >
       <ShowcaseCard
         label={`all icons (${Object.keys(icons).length})`}
-        code={`import { SearchIcon } from "@nithin22796/ui-components";
+        code={`import { SearchIcon } from "@nithin-studio-app/ui-components";
 
 <SearchIcon />`}
       >

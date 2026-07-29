@@ -38,7 +38,7 @@ jobs:
           node-version: 24
           cache: pnpm
           registry-url: https://npm.pkg.github.com
-          scope: "@nithin22796"
+          scope: "@nithin-studio-app"
 
       - run: pnpm install --frozen-lockfile
 

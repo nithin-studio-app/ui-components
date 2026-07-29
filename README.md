@@ -1,6 +1,6 @@
-# @nithin-studio/ui-components
+# @nithin-studio-app/ui-components
 
-**Storybook:** https://nithin22796.github.io/ui-components/ — rebuilt and
+**Storybook:** https://nithin-studio-app.github.io/ui-components/ — rebuilt and
 redeployed automatically on every push to `main` (`.github/workflows/
 deploy-storybook.yml`).
 
@@ -100,7 +100,7 @@ needs no per-file wiring: the build script copies every `*.css` directly
 under a `foundations/*/` folder into `dist/` (`find src/foundations -name
 '*.css' ...`), and `"./*.css": "./dist/*.css"` in `package.json`'s
 `exports` is a wildcard pattern that resolves any of them automatically
-(`@nithin-studio/ui-components/whatever.css`). Just drop the file in —
+(`@nithin-studio-app/ui-components/whatever.css`). Just drop the file in —
 no build script or `package.json` edit needed. The one assumption this
 relies on: every `foundations/*/*.css` file is meant to be a public,
 opt-in export, not component-internal styling (there's no CSS like that
@@ -110,7 +110,7 @@ narrowing).
 ## Using this in an app
 
 ```
-pnpm add @nithin-studio/ui-components
+pnpm add @nithin-studio-app/ui-components
 ```
 
 Components read design tokens from CSS custom properties (`--bg`,
@@ -173,7 +173,7 @@ triggered, *then* `main` gets synced afterward:
    workflow**, and pick the bump type (patch/minor/major) from the
    dropdown. The workflow bumps `package.json` to that version, builds,
    and publishes straight to GitHub Packages
-   (`@nithin22796/ui-components`) — no PR gate before this step.
+   (`@nithin-studio-app/ui-components`) — no PR gate before this step.
 3. Only after that publish succeeds, it opens a PR to bring `main`'s
    `package.json` in line with what was just published, and enables
    auto-merge on it.
