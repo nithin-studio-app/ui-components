@@ -1,9 +1,11 @@
+import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, within } from "storybook/test";
 import { Badge } from "./Badge";
+import { NotificationsIcon, MailIcon } from "../icons";
 import { ShowcasePage, ShowcaseCard } from "../../_showcase";
 
-function Box() {
+function IconBox({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
@@ -11,8 +13,14 @@ function Box() {
         height: "2.5rem",
         borderRadius: "8px",
         background: "#3a3d42",
+        color: "#f0f0f0",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
-    />
+    >
+      <div style={{ width: "1.25rem", height: "1.25rem" }}>{children}</div>
+    </div>
   );
 }
 
@@ -21,46 +29,62 @@ function BadgeShowcase() {
     <ShowcasePage title="Badge" description="A count or dot anchored to a corner of another element.">
       <ShowcaseCard label="count">
         <Badge content={3}>
-          <Box />
+          <IconBox>
+            <NotificationsIcon />
+          </IconBox>
         </Badge>
       </ShowcaseCard>
 
       <ShowcaseCard label="dot">
         <Badge variant="dot">
-          <Box />
+          <IconBox>
+            <NotificationsIcon />
+          </IconBox>
         </Badge>
       </ShowcaseCard>
 
       <ShowcaseCard label="max truncation (content=125, max=99)">
         <Badge content={125}>
-          <Box />
+          <IconBox>
+            <MailIcon />
+          </IconBox>
         </Badge>
       </ShowcaseCard>
 
       <ShowcaseCard label="showZero">
         <div style={{ display: "flex", gap: "1.5rem" }}>
           <Badge content={0}>
-            <Box />
+            <IconBox>
+              <MailIcon />
+            </IconBox>
           </Badge>
           <Badge content={0} showZero>
-            <Box />
+            <IconBox>
+              <MailIcon />
+            </IconBox>
           </Badge>
         </div>
       </ShowcaseCard>
 
       <ShowcaseCard label="invisible">
         <Badge content={5} invisible>
-          <Box />
+          <IconBox>
+            <NotificationsIcon />
+          </IconBox>
         </Badge>
       </ShowcaseCard>
 
       <ShowcaseCard label="color">
         <div style={{ display: "flex", gap: "1.5rem" }}>
           <Badge content={2} color="#d50000">
-            <Box />
+            <IconBox>
+              <MailIcon />
+            </IconBox>
           </Badge>
           <Badge content={2} color="#64dd17">
-            <Box />
+            <IconBox>
+              <NotificationsIcon />
+            </IconBox>
           </Badge>
         </div>
       </ShowcaseCard>
