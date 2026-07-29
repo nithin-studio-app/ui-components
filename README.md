@@ -23,6 +23,12 @@ flat list of component folders:
   `switch/`, `text-field/`. Matches reference pages' *behavior* (variants,
   props, a11y semantics) for API shape only — never named after or
   dependent on the reference library.
+- `feedbacks/` — components that communicate status back to the user:
+  `alert/`, `backdrop/`, `dialog/` (portals to `document.body`, traps
+  focus, restores it on close), `progress-bar/` (ported from the backup,
+  refactored off the old CSS-custom-property theme onto literal hex),
+  `spinner/` (also ported — a full-screen upload-progress celebration
+  overlay, not a generic loading spinner).
 - `utils/` (not yet created) — non-visual helpers.
 - `_showcase/` — Storybook-presentation-only helpers (`ShowcasePage`,
   `ShowcaseCard`), used by `*.stories.tsx` files but never exported from
