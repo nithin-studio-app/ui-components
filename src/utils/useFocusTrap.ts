@@ -13,6 +13,7 @@ const FOCUSABLE_SELECTOR =
  * Attach `containerRef` to the focus-trapping element and spread
  * `{ onKeyDown: handleKeyDown }` onto it (or call it from your own handler).
  */
+
 export function useFocusTrap<T extends HTMLElement>(open: boolean, onEscape?: () => void) {
   const containerRef = useRef<T>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
