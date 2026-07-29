@@ -3,6 +3,7 @@ export * from "./link";
 export * from "./breadcrumbs";
 export * from "./menu";
 export * from "./pagination";
+export * from "./popover";
 export * from "./speed-dial";
 export * from "./stepper";
 export * from "./tabs";
