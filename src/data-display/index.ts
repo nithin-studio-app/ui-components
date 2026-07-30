@@ -6,6 +6,7 @@ export * from "./divider";
 export * from "./icons";
 export * from "./image-carousel";
 export * from "./list";
+export * from "./marquee";
 export * from "./table";
 export * from "./tooltip";
 export * from "./text";
