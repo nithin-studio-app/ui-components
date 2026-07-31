@@ -49,3 +49,5 @@ export { CalendarIcon } from "./CalendarIcon";
 export { LocationIcon } from "./LocationIcon";
 export { LogoutIcon } from "./LogoutIcon";
 export { HelpIcon } from "./HelpIcon";
+export { TableViewIcon } from "./TableViewIcon";
+export { GridViewIcon } from "./GridViewIcon";
