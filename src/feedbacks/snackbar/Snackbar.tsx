@@ -21,7 +21,7 @@ export interface SnackbarProps {
 // A transient, non-modal notification — no backdrop, doesn't trap focus,
 // role="status" so screen readers announce it without stealing focus
 // from whatever the user was doing.
-export function Snackbar({ open, onClose, autoHideDuration, position = "bottom-center", message, action, children }: SnackbarProps) {
+export function Snackbar({ open, onClose, autoHideDuration, position = "top-right", message, action, children }: SnackbarProps) {
   useEffect(() => {
     if (!open || !autoHideDuration) return;
     const timer = setTimeout(() => onClose?.(), autoHideDuration);

@@ -5,7 +5,7 @@ redeployed automatically on every push to `main` (`.github/workflows/
 deploy-storybook.yml`).
 
 Shared, app-agnostic React components used across nithin-studio's sub-apps
-(file-manager, image-importer, insta-downloader, ...). Extracted so each
+(filezilla, media-importer, frame-extractor, ...). Extracted so each
 sub-app can live in its own repo/deploy independently while still reusing
 the same UI pieces, instead of copy-pasting them.
 
