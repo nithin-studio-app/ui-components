@@ -6,3 +6,4 @@ export * from "./radio-group";
 export * from "./switch";
 export * from "./select";
 export * from "./text-field";
+export * from "./toolbar";

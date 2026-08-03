@@ -1,0 +1,9 @@
+.toolbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  width: fit-content;
+  border: 1px solid #2a2c30;
+  border-radius: 10px;
+}
