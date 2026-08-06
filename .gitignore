@@ -4,3 +4,6 @@ storybook-static
 coverage
 *.local
 .DS_Store
+
+# Per-app Claude Code context — not shared to GitHub
+CLAUDE.md

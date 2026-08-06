@@ -43,10 +43,11 @@
   gap: 0.75rem;
   padding: 0.75rem 1rem;
   border-radius: 8px;
-  background: #232529;
-  color: #f0f0f0;
+  background: #ffffff;
+  border: 1px solid #e1e4e8;
+  color: #1a1d21;
   font-size: 0.875rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .snackbar-message {
@@ -72,7 +73,7 @@
 
 .snackbar-close:hover {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .snackbar-close svg {

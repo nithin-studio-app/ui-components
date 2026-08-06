@@ -47,22 +47,22 @@
 
 .button-contained {
   border-color: transparent;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .button-text:hover:not(.button-disabled),
 .button-outlined:hover:not(.button-disabled) {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.045);
 }
 
 .button-text:active:not(.button-disabled),
 .button-outlined:active:not(.button-disabled) {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .button-contained:hover:not(.button-disabled) {
   filter: brightness(1.1);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .button-contained:active:not(.button-disabled) {

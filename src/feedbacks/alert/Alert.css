@@ -56,7 +56,7 @@
 
 .alert-close:hover {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .alert-close svg {
@@ -67,26 +67,26 @@
 /* Standard: tinted transparent background, colored icon/text */
 .alert-standard.alert-success {
   background: #64dd171f;
-  color: #64dd17;
+  color: #1b5e20;
 }
 
 .alert-standard.alert-info {
   background: #00b0ff1f;
-  color: #00b0ff;
+  color: #01579b;
 }
 
 .alert-standard.alert-warning {
   background: #ffab001f;
-  color: #ffab00;
+  color: #8a4b00;
 }
 
 .alert-standard.alert-error {
   background: #e573731f;
-  color: #e57373;
+  color: #b71c1c;
 }
 
 .alert-standard .alert-message {
-  color: #d6d8db;
+  color: #3c4046;
 }
 
 /* Outlined: border only, colored icon/text, transparent background */
@@ -96,23 +96,23 @@
 }
 
 .alert-outlined.alert-success {
-  color: #64dd17;
+  color: #1b5e20;
 }
 
 .alert-outlined.alert-info {
-  color: #00b0ff;
+  color: #01579b;
 }
 
 .alert-outlined.alert-warning {
-  color: #ffab00;
+  color: #8a4b00;
 }
 
 .alert-outlined.alert-error {
-  color: #e57373;
+  color: #b71c1c;
 }
 
 .alert-outlined .alert-message {
-  color: #d6d8db;
+  color: #3c4046;
 }
 
 /* Filled: solid background, contrasting text */

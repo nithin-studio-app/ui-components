@@ -9,7 +9,7 @@
 
 .progress-bar-ring-inner {
   border-radius: 50%;
-  background: #17181b;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,8 +18,7 @@
 .progress-bar-ring-pct {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 1rem;
-  color: #f0f0f0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  color: #1a1d21;
 }
 
 .progress-bar-linear-row {
@@ -31,7 +30,7 @@
 .progress-bar-linear-track {
   flex: 1;
   border-radius: 999px;
-  background: #2a2c30;
+  background: #e1e4e8;
   overflow: hidden;
 }
 
@@ -46,7 +45,7 @@
 .progress-bar-linear-label {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 0.85rem;
-  color: #f0f0f0;
+  color: #1a1d21;
   min-width: 2.75rem;
   text-align: right;
 }
@@ -104,5 +103,5 @@
   margin-top: -0.5rem;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 1.1rem;
-  color: #f0f0f0;
+  color: #1a1d21;
 }

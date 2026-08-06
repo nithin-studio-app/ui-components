@@ -15,7 +15,7 @@
 }
 
 .checkbox:hover:not(.checkbox-disabled) {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.045);
 }
 
 .checkbox-input {
@@ -37,7 +37,7 @@
   width: 1.15rem;
   height: 1.15rem;
   border-radius: 3px;
-  border: 2px solid #7a7f87;
+  border: 2px solid #9aa0a6;
   box-sizing: border-box;
   pointer-events: none;
   transition: background 0.1s, border-color 0.1s;
@@ -55,12 +55,12 @@
 }
 
 .checkbox-disabled .checkbox-box {
-  border-color: #4a4d52;
+  border-color: #c4c8cd;
 }
 
 .checkbox-disabled .checkbox-input:checked + .checkbox-box,
 .checkbox-disabled .checkbox-input:indeterminate + .checkbox-box {
-  background: #4a4d52;
+  background: #c4c8cd;
 }
 
 .checkbox-icon {

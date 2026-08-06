@@ -4,9 +4,9 @@
   width: 100%;
   max-height: calc(100vh - 4rem);
   margin: 2rem;
-  background: #1d1f23;
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
   outline: none;
   overflow: hidden;
 }
@@ -35,13 +35,13 @@
   padding: 1.25rem 1.5rem 0.5rem;
   font-size: 1.1rem;
   font-weight: 700;
-  color: #f0f0f0;
+  color: #1a1d21;
 }
 
 .dialog-content {
   padding: 0.5rem 1.5rem 1.25rem;
   overflow-y: auto;
-  color: #d6d8db;
+  color: #4b4f56;
   font-size: 0.9rem;
   line-height: 1.6;
 }
@@ -51,5 +51,5 @@
   justify-content: flex-end;
   gap: 0.5rem;
   padding: 0.85rem 1.5rem;
-  border-top: 1px solid #2a2c30;
+  border-top: 1px solid #e1e4e8;
 }
